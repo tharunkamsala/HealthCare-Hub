@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | Medical Hospital</title>
+    <link rel="stylesheet" href="doctor-dashboard-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Doctor Dashboard</h1>
+        <div class="dropdown">
+            <button class="dropbtn">Manage Options</button>
+            <div class="dropdown-content">
+                <a href="#schedule-section">Set Up & Update Schedules</a>
+                <a href="#appointments-section">View & Manage Appointments</a>
+                <a href="#medications-section">Suggest Medications/Tests</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="schedule-section">
+        <h2>Set Up & Update Schedules</h2>
+        <form id="schedule-form">
+            <label for="schedule-date">Schedule Date:</label>
+            <input type="date" id="schedule-date" required>
+            <button type="submit">Update Schedule</button>
+        </form>
+        <div id="schedule-display">
+            <h3>Upcoming Schedules:</h3>
+            <ul id="schedule-list">
+                <!-- Dummy schedule data -->
+                <li>August 22, 2024</li>
+                <li>August 25, 2024</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="appointments-section">
+        <h2>View & Manage Appointments</h2>
+        <div id="appointments-display">
+            <h3>Upcoming Appointments:</h3>
+            <ul id="appointments-list">
+                <!-- Dummy appointment data -->
+                <li>John Doe - August 22, 2024 - 10:00 AM</li>
+                <li>Jane Smith - August 22, 2024 - 11:00 AM</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="medications-section">
+        <h2>Suggest Medications/Tests</h2>
+        <form id="medications-form">
+            <label for="patient-name">Patient Name:</label>
+            <input type="text" id="patient-name" required>
+
+            <label for="suggestion">Medication/Test Suggestion:</label>
+            <textarea id="suggestion" required></textarea>
+
+            <button type="submit">Submit Suggestion</button>
+        </form>
+        <div id="medications-display">
+            <h3>Suggestions:</h3>
+            <ul id="medications-list">
+                <!-- Dummy suggestion data -->
+                <li>John Doe - Blood Test</li>
+                <li>Jane Smith - Antibiotics</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="doctor-dashboard-script.js"></script>
+</body>
+</html>

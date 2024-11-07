@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Doctor Accounts | Medical Hospital</title>
+    <link rel="stylesheet" href="manageaccounts.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1 class="manageacc">Manage Doctor Accounts</h1>
+            <button id="logout">Logout</button>
+            <button id="homep">Home</button>
+        </header>
+        <div class="dropdown">
+            <button class="dropbtn">Manage Options</button>
+            <div class="dropdown-content">
+                <a href="manage-accounts.html">Manage Accounts</a>
+                <a href="manage-appointments.html">Manage Appointments</a>
+                <a href="generate-reports.html">Generate Reports</a>
+            </div>
+        </div>
+        <main>
+            <section id="accounts">
+                <h2>Manage Doctor Accounts</h2>
+                <form id="register-doctor-form">
+                    <input type="text" id="doctor-name" placeholder="Doctor's Name" required>
+                    <input type="text" id="doctor-specialty" placeholder="Specialty" required>
+                    <button type="submit">Register Doctor</button>
+                </form>
+                <h3>Registered Doctors:</h3>
+                <ul id="doctor-list">
+                    <!-- Pre-created accounts with delete buttons -->
+                    <li>
+                        Dr. John Smith - Cardiologist
+                        <button class="delete-btn">Delete</button>
+                    </li>
+                    <li>
+                        Dr. Emily Watson - Neurologist
+                        <button class="delete-btn">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="adminscript.js"></script>
+</body>
+</html>

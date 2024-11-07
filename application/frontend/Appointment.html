@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .btn-appointment,
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+        .btn-appointment:hover,
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .doctor-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .doctor-option {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .doctor-option:hover {
+            background-color: #e1e1e1;
+        }
+
+        .doctor-option img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+        .selected-doctor {
+            border: 2px solid #007bff;
+            background-color: #d1e7fd;
+        }
+
+        .slot-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .problem-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .summary-section {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://via.placeholder.com/40" alt="Logo">
+            Medical.
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="admin.html">Admin</a>
+            <a href="doctor-login.html">Doctor</a>
+            <a href="user-login.html">User</a>
+            <a href="#" class="btn-appointment">Appointment</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Step 1: Choose a Doctor -->
+        <div class="step active" id="step1">
+            <h2>Choose a Doctor</h2>
+            <div class="doctor-selection">
+                <div class="doctor-option" onclick="selectDoctor('Dr. John - Cardiologist', this)">
+                    <img src="https://via.placeholder.com/50/007bff/ffffff?text=Dr.+J" alt="Dr. John">
+                    Dr. John - Cardiologist
+                </div>
+                <div class="doctor-option" onclick="selectDoctor('Dr. Smith - Dermatologist', this)">
+                    <img src="https://via.placeholder.com/50/007bff/ffffff?text=Dr.+S" alt="Dr. Smith">
+                    Dr. Smith - Dermatologist
+                </div>
+                <div class="doctor-option" onclick="selectDoctor('Dr. Alice - Neurologist', this)">
+                    <img src="https://via.placeholder.com/50/007bff/ffffff?text=Dr.+A" alt="Dr. Alice">
+                    Dr. Alice - Neurologist
+                </div>
+                <div class="doctor-option" onclick="selectDoctor('Dr. Mike - Pediatrician', this)">
+                    <img src="https://via.placeholder.com/50/007bff/ffffff?text=Dr.+M" alt="Dr. Mike">
+                    Dr. Mike - Pediatrician
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Select a Date and Available Slot -->
+        <div class="step" id="step2">
+            <h2>Select a Date</h2>
+            <input type="date" id="appointment-date" onchange="showAvailableSlots()">
+            <div id="available-slots" class="slot-selection"></div>
+        </div>
+
+       <!-- Step 3: Briefly Describe Your Problem -->
+<div class="step" id="step3">
+    <h2>Select your problems</h2>
+    <div class="problem-options">
+        <label><input type="checkbox" value="Headache"> Headache</label>
+        <label><input type="checkbox" value="Fever"> Fever</label>
+        <label><input type="checkbox" value="Cold"> Cold</label>
+        <label><input type="checkbox" value="Skin Rash"> Skin Rash</label>
+        <label><input type="checkbox" value="Stomach Pain"> Stomach Pain</label>
+        <label><input type="checkbox" value="Fatigue"> Fatigue</label>
+    </div>
+    <textarea id="additional-problem-description" rows="3" placeholder="Additional problem details..."></textarea>
+    <button onclick="nextStep(4)">Next</button>
+</div>
+
+        <!-- Step 4: Confirm and Book Appointment -->
+        <div class="step" id="step4">
+            <h2>Confirm Your Appointment</h2>
+            <div class="summary-section">
+                <p id="doctor-selection"></p>
+                <p id="date-selection"></p>
+                <p id="slot-selection"></p>
+                <p id="problem-description-summary"></p>
+            </div>
+            <button onclick="bookAppointment()" class="btn-primary">Confirm and Book Appointment</button>
+        </div>
+
+        <!-- Step 5: Final Submission -->
+        <div class="step" id="step5">
+            <h2>Appointment Confirmed</h2>
+            <p>Your appointment has been successfully booked.</p>
+            <button onclick="submitAppointment()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedDoctor = '';
+        let selectedDate = '';
+        let selectedSlot = '';
+
+        function nextStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step' + stepNumber).classList.add('active');
+        }
+
+        function selectDoctor(doctor, element) {
+            document.querySelectorAll('.doctor-option').forEach(option => {
+                option.classList.remove('selected-doctor');
+            });
+            element.classList.add('selected-doctor');
+            selectedDoctor = doctor;
+            document.getElementById('doctor-selection').innerText = `Doctor: ${selectedDoctor}`;
+            nextStep(2);
+        }
+
+        function showAvailableSlots() {
+            selectedDate = document.getElementById('appointment-date').value;
+            document.getElementById('date-selection').innerText = `Date: ${selectedDate}`;
+
+            // Example available slots
+            const slots = ['10:00 AM', '11:00 AM', '02:00 PM'];
+            const slotsContainer = document.getElementById('available-slots');
+            slotsContainer.innerHTML = '';
+
+            slots.forEach(slot => {
+                const slotBtn = document.createElement('button');
+                slotBtn.innerText = slot;
+                slotBtn.onclick = () => selectSlot(slot);
+                slotsContainer.appendChild(slotBtn);
+            });
+
+            nextStep(3);
+        }
+
+        function selectSlot(slot) {
+            selectedSlot = slot;
+            document.getElementById('slot-selection').innerText = `Slot: ${selectedSlot}`;
+            nextStep(4);
+        }
+
+        function bookAppointment() {
+            const problemDescription = Array.from(document.querySelectorAll('.problem-options input:checked'))
+                .map(checkbox => checkbox.value)
+                .join(', ') || 'No specific problems selected';
+            const additionalDescription = document.getElementById('additional-problem-description').value;
+            const finalProblemDescription = problemDescription + (additionalDescription ? ` - ${additionalDescription}` : '');
+
+            document.getElementById('problem-description-summary').innerText = `Problems: ${finalProblemDescription}`;
+            nextStep(5);
+        }
+
+        function submitAppointment() {
+            alert('Appointment booked successfully!');
+            // You can add form submission logic here
+        }
+    </script>
+</body>
+
+</html>

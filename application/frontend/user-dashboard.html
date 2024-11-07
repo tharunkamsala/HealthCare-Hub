@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 40px 10%;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .card input[type="text"],
+        .card input[type="date"],
+        .card select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .card button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .card button:hover {
+            background-color: #0056b3;
+        }
+
+        .card form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-title {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .dashboard-title h2 {
+            color: #555;
+            font-size: 28px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Dashboard</h1>
+    </header>
+
+    <div class="dashboard-title">
+        <h2>Welcome users! Manage your patients and appointments here.</h2>
+    </div>
+
+    <div class="container">
+        <!-- Register Patients Section -->
+        <div class="card">
+            <h2>Register Patient</h2>
+            <form onsubmit="registerPatient(event)">
+                <input type="text" id="patientName" placeholder="Patient Name" required>
+                <input type="text" id="patientEmail" placeholder="Patient Email" required>
+                <input type="text" id="patientPhone" placeholder="Patient Phone" required>
+                <input type="text" id="patientAddress" placeholder="Patient Address" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- Book Appointment Section -->
+        <div class="card">
+            <h2>Book Appointment</h2>
+            <form onsubmit="bookAppointment(event)">
+                <select id="doctorName" required>
+                    <option value="">Select Doctor</option>
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Dr. Johnson">Dr. Johnson</option>
+                    <option value="Dr. Williams">Dr. Williams</option>
+                </select>
+                <input type="date" id="appointmentDate" required>
+                <input type="text" id="appointmentTime" placeholder="Appointment Time" required>
+                <button type="submit">Book Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function registerPatient(event) {
+            event.preventDefault();
+            // Get user input
+            const name = document.getElementById('patientName').value;
+            const email = document.getElementById('patientEmail').value;
+            const phone = document.getElementById('patientPhone').value;
+            const address = document.getElementById('patientAddress').value;
+
+            // Display confirmation message
+            alert(`Patient Registered!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}`);
+        }
+
+        function bookAppointment(event) {
+            event.preventDefault();
+            // Get user input
+            const doctor = document.getElementById('doctorName').value;
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+
+            // Display confirmation message
+            alert(`Appointment Booked!\n\nDoctor: ${doctor}\nDate: ${date}\nTime: ${time}`);
+        }
+    </script>
+</body>
+</html>

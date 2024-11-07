@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Appointments | Medical Hospital</title>
+    <link rel="stylesheet" href="manageappointments.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Manage Appointments</h1>
+            <button id="logout">Logout</button>
+            <button id="homep">Home</button>
+        </header>
+        <div class="dropdown">
+            <button class="dropbtn">Manage Options</button>
+            <div class="dropdown-content">
+                <a href="manage-accounts.html">Manage Accounts</a>
+                <a href="manage-appointments.html">Manage Appointments</a>
+                <a href="generate-reports.html">Generate Reports</a>
+            </div>
+        </div>
+        <main>
+            <section id="appointments">
+                <h2>Manage Appointments</h2>
+                <form id="appointment-form">
+                    <select id="select-doctor">
+                        <option value="">Select Doctor</option>
+                        <option value="Dr. John Smith">Dr. John Smith</option>
+                        <option value="Dr. Emily Watson">Dr. Emily Watson</option>
+                    </select>
+                    <input type="text" id="appointment-date" placeholder="Appointment Date (YYYY-MM-DD)" required>
+                    <button type="submit">Add Appointment</button>
+                </form>
+                <h3>Doctor's Appointments:</h3>
+                <ul id="appointment-list">
+                    <!-- Pre-existing appointments with delete buttons -->
+                    <li>
+                        Dr. John Smith - 2024-08-20
+                        <button class="delete-btn">Delete</button>
+                    </li>
+                    <li>
+                        Dr. Emily Watson - 2024-08-22
+                        <button class="delete-btn">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="adminscript.js"></script>
+</body>
+</html>

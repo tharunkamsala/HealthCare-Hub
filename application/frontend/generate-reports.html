@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Reports | Medical Hospital</title>
+    <link rel="stylesheet" href="generatereports.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Generate Reports</h1>
+            <button id="logout">Logout</button>
+            <button id="homep">Home</button>
+        </header>
+        <div class="dropdown">
+            <button class="dropbtn">Manage Options</button>
+            <div class="dropdown-content">
+                <a href="manage-accounts.html">Manage Accounts</a>
+                <a href="manage-appointments.html">Manage Appointments</a>
+                <a href="generate-reports.html">Generate Reports</a>
+            </div>
+        </div>
+        <main>
+            <section id="reports">
+                <h2>Generate Reports</h2>
+                <div class="button-container">
+                    <button id="generate-report">Generate Doctor Report</button>
+                    <button id="generate-patient-report">Generate Appointment Report</button>
+                </div>
+                <div id="report-content">
+                    <!-- Report content will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="adminscript.js"></script>
+</body>
+</html>

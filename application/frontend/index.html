@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Website</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: white;
+            padding: 15px 10%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        .btn-appointment {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-appointment:hover {
+            background-color: #0056b3;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            background: linear-gradient(120deg, #e0f7ff, #c4e8ff);
+            border-bottom: 1px solid #007bff;
+        }
+
+        .hero .hero-text {
+            max-width: 50%;
+        }
+
+        .hero h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #007bff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .hero img {
+            max-width: 40%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Us Section */
+        .about-hero {
+            background-color: #fff;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 42px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Our Mission Section */
+        .our-mission {
+            background-color: #f0f4ff;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .our-mission h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .our-mission p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .mission-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .mission-cards .card {
+            background-color: #007bff;
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 30%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-cards .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mission-cards .card h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .mission-cards .card p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Our Team Section */
+        .our-team {
+            background-color: #fff;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .our-team h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #007bff;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 30%;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .team-member p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo">
+            Medical.
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="admin.html">Admin</a>
+            <a href="doctor-login.html">Doctor</a>
+            <a href="user-login.html">User</a>
+            <a href="#" class="btn-appointment">Appointment</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h2>COMMITTED TO SUCCESS</h2>
+            <h1>WE CARE ABOUT YOUR <span>HEALTH</span></h1>
+            <p>"ADD RANDOM STUFF HERE" Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+            <a href="#" class="btn-primary">Appointment</a>
+        </div>
+        <img src="pict2.png" alt="Doctor Image">
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-hero">
+        <h1>About Us</h1>
+        <p>At Medical Hospital, we believe in providing the best healthcare services to our community. Our state-of-the-art facilities and dedicated staff ensure that every patient receives personalized care with compassion and professionalism.</p>
+        <a href="#more-info" class="btn-primary">Learn More</a>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="our-mission" id="more-info">
+        <h2>Our Mission</h2>
+        <p>To improve the health of those we serve with a commitment to excellence in all that we do.</p>
+        <div class="mission-cards">
+            <div class="card">
+                <h3>Compassion</h3>
+                <p>We treat our patients and their families with kindness and empathy.</p>
+            </div>
+            <div class="card">
+                <h3>Innovation</h3>
+                <p>We constantly seek out new treatments and technologies to improve patient outcomes.</p>
+            </div>
+            <div class="card">
+                <h3>Excellence</h3>
+                <p>We are dedicated to providing the highest quality care.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="our-team">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="doct2.jpg" alt="Team Member">
+                <h4>Dr. John Doe</h4>
+                <p>Chief Medical Officer</p>
+            </div>
+            <div class="team-member">
+                <img src="doct1.jpg" alt="Team Member">
+                <h4>Dr. Jane Smith</h4>
+                <p>Head of Surgery</p>
+            </div>
+            <div class="team-member">
+                <img src="doct3.jpg" alt="Team Member">
+                <h4>Dr. Emily Johnson</h4>
+                <p>Senior Pediatrician</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Medical Hospital. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
