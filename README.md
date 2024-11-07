@@ -1,4 +1,3 @@
-# THE-NULL-POINTERS : WFS8 - TEAM2 HYDERABAD
 
 # HealthCare Hub
 
